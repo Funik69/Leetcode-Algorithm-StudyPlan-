@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<vector<int>> permute(vector<int>& nums) { 
+        int n=nums.size();
+        int t=0;
+        if(n==6) t=720;
+        if(n==5) t=120;
+        if(n==4) t=24;
+        if(n==3) t=6;
+        if(n==2) t=2;
+        if(n==1) t=1;
+        vector<vector<int>> vv;
+        vector<int> v;
+        
+        while(t--){
+            for(int i=0;i<n;i++){
+               v.push_back(nums[i]);
+            }
+            vv.push_back(v);
+            v.clear();
+            next_permutation(nums.begin(),nums.end());
+        }
+        
+        
+    return vv;}
+};
