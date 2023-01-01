@@ -1,0 +1,20 @@
+class Solution {
+public:
+void sol(int n,int k,int start,vector<vector<int>>& res,vector<int>v){
+    if(v.size()==k){
+         res.push_back(v);
+         return;
+    }
+    for(int i=start;i<=n;i++){
+        v.push_back(i);
+        sol(n,k,i+1,res,v);
+        v.pop_back();
+    }
+}
+    vector<vector<int>> combine(int n, int k) {
+        vector<int> v;
+        vector<vector<int>> vv;
+        sol(n,k,1,vv,v);
+        return vv;
+    }
+};
